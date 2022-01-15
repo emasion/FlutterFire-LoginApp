@@ -122,6 +122,11 @@ class _LoginScreenState extends State<LoginScreen> {
         AppleIDAuthorizationScopes.email,
         AppleIDAuthorizationScopes.fullName,
       ],
+      webAuthenticationOptions: WebAuthenticationOptions(
+        clientId: "com.login.flutter-firebase-sns-login.web",
+        redirectUri: Uri.parse(
+            "https://crawling-weak-canid.glitch.me/callbacks/sign_in_with_apple"),
+      ),
     );
     final oauthCredential = OAuthProvider("apple.com").credential(
       idToken: appleCredential.identityToken,
